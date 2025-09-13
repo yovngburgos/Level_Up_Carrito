@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Productos - Level-Up Gamer</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-light">
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">Level-Up Gamer</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="productos.html">Productos</a></li>
+          <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+        </ul>
+        <div class="d-flex align-items-center gap-2">
+          <div id="auth-buttons" class="d-flex gap-2">
+            <a class="btn btn-outline-light" href="login.html">Login</a>
+            <a class="btn btn-primary" href="register.html">Registrarse</a>
+          </div>
+          <a href="profile.html" class="btn btn-primary d-none" id="account-button">Cuenta</a>
+
+          <button class="btn btn-outline-light position-relative" id="btnCart" aria-label="Ver carrito" data-bs-toggle="modal" data-bs-target="#cartModal">
+            🛒 Carrito
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary" id="cart-count">0</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <header class="bg-dark text-white text-center py-5 mt-5">
+    <div class="container pt-5">
+      <h1 class="display-4">Nuestros Productos</h1>
+      <p class="lead">Descubre la mejor tecnología gamer al mejor precio</p>
+    </div>
+  </header>
+
+  <main class="container py-5">
+    <div class="row">
+
+      <div class="col-md-4 mb-4">
+        <div class="card h-100 shadow-sm product-card">
+          <img src="imagenes/notebook_gamer.jpg" class="card-img-top" alt="un notebook gamer">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Notebook Gamer Ultra Pro</h5>
+            <p class="card-text text-muted flex-grow-1">Procesador i9, RTX 4080, 32GB RAM.</p>
+            <div class="d-flex justify-content-between align-items-center mt-3">
+              <span class="fs-5 fw-bold text-primary">$1.899.990</span>
+              <button 
+                class="btn btn-primary add-to-cart" 
+                data-name="Notebook Gamer Ultra Pro" 
+                data-price="1899990"
+                data-sku="NOTEBOOK001"
+                data-color="Negro"
+                data-image="imagenes/notebook_gamer.jpg">
+                Añadir 🛒
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 mb-4">
+        <div class="card h-100 shadow-sm product-card">
+          <img src="imagenes/pc_gamer.webp" class="card-img-top" alt="pc_gamer">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">PC Gamer Bestia RGB</h5>
+            <p class="card-text text-muted flex-grow-1">Gaming en 4K con iluminación RGB personalizable.</p>
+            <div class="d-flex justify-content-between align-items-center mt-3">
+              <span class="fs-5 fw-bold text-primary">$2.450.000</span>
+              <button 
+                class="btn btn-primary add-to-cart" 
+                data-name="PC Gamer Bestia RGB" 
+                data-price="2450000"
+                data-sku="PCGAMER002"
+                data-color="Negro"
+                data-image="imagenes/pc_gamer.webp">
+                Añadir 🛒
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 mb-4">
+        <div class="card h-100 shadow-sm product-card">
+          <img src="imagenes/audifonos_gamer.webp" class="card-img-top" alt="Auriculares Gamer Inmersivos">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Auriculares Gamer Inmersivos</h5>
+            <p class="card-text text-muted flex-grow-1">Sonido 7.1 envolvente y cancelación de ruido.</p>
+            <div class="d-flex justify-content-between align-items-center mt-3">
+              <span class="fs-5 fw-bold text-primary">$89.990</span>
+              <button 
+                class="btn btn-primary add-to-cart" 
+                data-name="Auriculares Gamer Inmersivos" 
+                data-price="89990"
+                data-sku="HEADSET003"
+                data-color="Negro"
+                data-image="imagenes/audifonos_gamer.webp">
+                Añadir 🛒
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 mb-4">
+        <div class="card h-100 shadow-sm product-card">
+          <img src="imagenes/mouse_gamer_expert.webp" class="card-img-top" alt="mouse">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Mouse Gamer Pro</h5>
+            <p class="card-text text-muted flex-grow-1">Sensor óptico 16.000 DPI con RGB.</p>
+            <div class="d-flex justify-content-between align-items-center mt-3">
+              <span class="fs-5 fw-bold text-primary">$39.990</span>
+              <button 
+                class="btn btn-primary add-to-cart" 
+                data-name="Mouse Gamer Pro" 
+                data-price="39990"
+                data-sku="MOUSE004"
+                data-color="Negro"
+                data-image="imagenes/mouse_gamer_expert.webp">
+                Añadir 🛒
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 mb-4">
+        <div class="card h-100 shadow-sm product-card">
+          <img src="imagenes/teclado_mecanico.webp" class="card-img-top" alt="Teclado Mecánico RGB">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Teclado Mecánico RGB</h5>
+            <p class="card-text text-muted flex-grow-1">Switches mecánicos + retroiluminación personalizable.</p>
+            <div class="d-flex justify-content-between align-items-center mt-3">
+              <span class="fs-5 fw-bold text-primary">$79.990</span>
+              <button 
+                class="btn btn-primary add-to-cart" 
+                data-name="Teclado Mecánico RGB" 
+                data-price="79990"
+                data-sku="TECLADO005"
+                data-color="Negro"
+                data-image="imagenes/teclado_mecanico.webp">
+                Añadir 🛒
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 mb-4">
+        <div class="card h-100 shadow-sm product-card">
+          <img src="imagenes/sillon_gamer.jpg" class="card-img-top" alt="Silla Gamer Premium">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">Silla Gamer Premium</h5>
+            <p class="card-text text-muted flex-grow-1">Ergonómica, reclinable, con soporte lumbar.</p>
+            <div class="d-flex justify-content-between align-items-center mt-3">
+              <span class="fs-5 fw-bold text-primary">$199.990</span>
+              <button 
+                class="btn btn-primary add-to-cart" 
+                data-name="Silla Gamer Premium" 
+                data-price="199990"
+                data-sku="SILLA006"
+                data-color="Negro"
+                data-image="imagenes/sillon_gamer.jpg">
+                Añadir 🛒
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-dark text-white text-center py-4 mt-5">
+    <div class="container">
+      <p class="mb-0">© 2025 Level-Up Gamer. Todos los derechos reservados.</p>
+      <div class="social-links mt-2">
+        <a href="#" class="text-white mx-2" aria-label="Enlace a Facebook"><i class="bi bi-facebook"></i></a>
+        <a href="#" class="text-white mx-2" aria-label="Enlace a Twitter"><i class="bi bi-twitter"></i></a>
+        <a href="#" class="text-white mx-2" aria-label="Enlace a Instagram"><i class="bi bi-instagram"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="cartModalLabel">Carrito de Compras</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body" id="cart-items">
+          <p>No hay productos en el carrito.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" id="clear-cart">Vaciar</button>
+          <a href="#" id="checkout-link" class="btn btn-primary">Finalizar compra</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

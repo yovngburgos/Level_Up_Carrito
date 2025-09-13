@@ -1,0 +1,169 @@
+/* 🎨 Paleta futurista amigable */
+:root {
+  --primary: #7c3aed;   /* Morado brillante */
+  --secondary: #0ea5e9; /* Azul neón */
+  --dark: #0a0a0a;      /* Negro profundo */
+  --text: #f3f4f6;      /* Gris muy claro */
+  --muted: #9ca3af;     /* Gris suave */
+  --bg-grad-1: #1e1b4b; /* Azul oscuro violeta */
+  --bg-grad-2: #312e81; /* Azul/violeta más claro */
+  --card-bg: #111827;   /* gris oscuro de las tarjetas */
+  --form-bg: #1f2937;   /* gris oscuro de los inputs */
+}
+
+/* Base global */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: 'Roboto', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: var(--text);
+  background: linear-gradient(180deg, var(--bg-grad-1), var(--bg-grad-2));
+  min-height: 100vh;
+}
+
+/* 🔹 Navbar */
+.navbar {
+  background-color: var(--dark) !important;
+}
+.navbar-brand {
+  letter-spacing: .3px;
+  color: var(--primary) !important;
+}
+.navbar-brand:hover {
+  color: var(--secondary) !important;
+}
+.navbar-nav .nav-link {
+  color: var(--text) !important;
+  transition: color 0.2s ease;
+}
+.navbar-nav .nav-link.active {
+  color: var(--secondary) !important;
+  font-weight: 500;
+}
+.navbar-nav .nav-link:hover {
+  color: var(--primary) !important;
+}
+
+/* 🔹 Botones */
+.btn-primary {
+  background-color: var(--primary);
+  border: none;
+  transition: background-color 0.2s ease;
+  /* font-size: 18px; texto más grande */
+  /* padding: 12px 24px; */
+}
+.btn-primary:hover {
+  background-color: var(--secondary);
+}
+
+/* 🔹 Tarjetas de productos */
+.product-card {
+  transition: transform .15s ease, box-shadow .15s ease;
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  border: 1px solid rgba(124,58,237,0.2);
+  color: var(--text);
+}
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 .5rem 1.2rem rgba(124,58,237,.3);
+}
+
+/* 🔹 Formularios */
+.form-control {
+  background-color: var(--form-bg);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: var(--text);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-control::placeholder {
+  color: #c9c9c9 !important;
+  opacity: 1 !important;
+}
+
+.form-control:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 .25rem rgba(124,58,237,.25);
+  background-color: var(--card-bg);
+  color: var(--text);
+}
+
+/* 🔹 Secciones y títulos */
+section h2, .card-title {
+  font-weight: 700;
+  color: var(--primary);
+}
+
+/* === Ajuste de visibilidad para "Productos Destacados" === */
+.destacados-title {
+  color: #ced3d8; /* Gris muy claro */
+  text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+}
+
+/* Utilidades */
+#cartCount {
+  min-width: 1.5rem;
+  background: var(--secondary);
+  color: #fff;
+  border-radius: 50%;
+  text-align: center;
+}
+
+#formStatus.success { color: #10b981; }
+#formStatus.error { color: #ef4444; }
+
+/* --- Modal Carrito --- */
+.modal-content {
+  background-color: var(--card-bg);
+  color: var(--text);
+}
+.modal-header .modal-title {
+  color: var(--primary);
+}
+.modal-body {
+  color: var(--text);
+}
+.modal-footer .btn-secondary,
+.modal-footer .btn-danger {
+  color: #fff !important;
+}
+
+.cart-item {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 1rem;
+  margin-bottom: 1rem !important;
+}
+.cart-item-img {
+  width: 80px;
+  height: auto;
+  border-radius: 8px;
+}
+.quantity-control .btn {
+  color: var(--muted);
+  font-size: 1.25rem;
+  padding: 0;
+  line-height: 0;
+}
+.product-color-pill {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--muted);
+  border-radius: 20px;
+  padding: 0.25em 0.75em;
+  font-size: 0.8rem;
+  font-weight: 500;
+  display: inline-block;
+  margin-top: 5px;
+}
+.product-card .card-text.text-muted {
+  color: var(--muted) !important;
+}
+.cart-item .sku {
+  color: var(--muted);
+}
