@@ -9,6 +9,9 @@ const formatter = new Intl.NumberFormat("es-CL", {
   minimumFractionDigits: 0,
 });
 
+
+
+
 // ========================
 // Guardar en localStorage
 // ========================
@@ -96,8 +99,8 @@ function updateCart() {
 function updateAuthButtons() {
   const authButtons = document.getElementById("auth-buttons");
   const accountButton = document.getElementById("account-button");
-  const isLoggedIn = localStorage.getItem("isLoggedIn");
-  const userData = JSON.parse(localStorage.getItem("userData"));
+  const isLoggedIn = sessionStorage.getItem("isLoggedIn");
+  const userData = JSON.parse(sessionStorage.getItem("userData"));
 
   if (authButtons && accountButton) {
     if (isLoggedIn === "true" && userData) {
@@ -123,7 +126,7 @@ function handleProfilePage() {
   const editFormContainer = document.getElementById("edit-profile-form-container");
   const editForm = document.getElementById("edit-form");
   const cancelEditBtn = document.getElementById("cancel-edit-btn");
-  const userData = JSON.parse(localStorage.getItem("userData"));
+  const userData = JSON.parse(sessionStorage.getItem("userData"));
 
   if (profileName && profileEmail && userData) {
     profileName.textContent = userData.nombre;
@@ -134,13 +137,13 @@ function handleProfilePage() {
   }
 
   if (logoutButton) {
-    logoutButton.addEventListener("click", () => {
-      localStorage.removeItem("isLoggedIn");
-      localStorage.removeItem("userData");
-      localStorage.removeItem("redirectToCheckout");
-      window.location.href = "index.html";
-    });
-  }
+  logoutButton.addEventListener("click", () => {
+    sessionStorage.removeItem("isLoggedIn");
+    sessionStorage.removeItem("userData");
+    localStorage.removeItem("redirectToCheckout");
+    window.location.href = "index.html";
+  });
+}
 
   if (editProfileButton && editFormContainer && editForm && cancelEditBtn) {
     editProfileButton.addEventListener("click", () => {
@@ -205,7 +208,8 @@ function handleProfilePage() {
 // Checkout - Autocompletar datos
 // ========================
 function autofillCheckoutForm() {
-  const userData = JSON.parse(localStorage.getItem("userData"));
+  const userData = JSON.parse(sessionStorage.getItem("userData"));
+
   const checkoutNameField = document.getElementById("checkout-nombre");
   const checkoutEmailField = document.getElementById("checkout-email");
   const checkoutTelField = document.getElementById("checkout-tel");
@@ -341,7 +345,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+      const isLoggedIn = sessionStorage.getItem("isLoggedIn") === "true";
       if (!isLoggedIn) {
         e.preventDefault();
         localStorage.setItem("redirectToCheckout", "true");
@@ -379,12 +383,13 @@ document.addEventListener("DOMContentLoaded", () => {
       const registeredUsers = JSON.parse(localStorage.getItem("registeredUsers")) || [];
       const user = registeredUsers.find((u) => u.email === email && u.password === password);
 
-      if (user) {
-        localStorage.setItem("isLoggedIn", "true");
-        localStorage.setItem(
-          "userData",
-          JSON.stringify({ nombre: user.nombre, email: user.email, tel: user.tel })
-        );
+    if (user) {
+      sessionStorage.setItem("isLoggedIn", "true");
+      sessionStorage.setItem(
+        "userData",
+        JSON.stringify({ nombre: user.nombre, email: user.email, tel: user.tel })
+      );
+
         const redirectToCheckout = localStorage.getItem("redirectToCheckout") === "true";
         if (redirectToCheckout) {
           localStorage.removeItem("redirectToCheckout");
